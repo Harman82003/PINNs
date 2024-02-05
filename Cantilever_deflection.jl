@@ -14,8 +14,8 @@ Dx = Differential(x)
 eq = Dxx(u(x)) ~ (-(P * x)/(Modulus*Inertia))
 
 # Initial and boundary conditions
-bcs = [u(1.0) ~ 0.0,
-    Dx(u(1.0)) ~ 0.0]
+bcs = [u(0.0) ~ 0.0,
+    Dx(u(0.0)) ~ 0.0]
 
 # Space and time domains
 domains = [x ∈ Interval(0.0, 1.0)]
