@@ -34,3 +34,12 @@ end
 
 res = Optimization.solve(prob, ADAM(0.01); callback = callback, maxiters = 2000)
 phi = discretization.phi
+
+
+using Plots
+dx = 0.05
+xs = [infimum(d.domain):(dx / 10):supremum(d.domain) for d in domains][1]
+u_predict = [first(phi(x, res.u)) for x in xs]
+
+x_plot = collect(xs)
+plot!(x_plot, u_predict, title = "predict")
